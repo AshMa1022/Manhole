@@ -1,0 +1,21 @@
+.ascii{
+      color: black; 
+      background: white;
+      display:inline-block;
+      white-space:pre;
+      letter-spacing:0;
+      line-height:1.4;
+      font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
+      font-size:12px;
+      font-weight:300;
+      border-style:none;
+}
+
+.wordInput{
+  width: 300px;
+  display: block;
+}
+
+.transitioning {
+  transition: font-weight 3s ease-in, color 3s ease-in;
+}
