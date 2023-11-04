@@ -1,0 +1,57 @@
+<header>
+    <link rel="stylesheet"  href="style.css">
+    <script src="gen.js"></script>
+</header>
+<body>
+<p>test</p>
+<div class="container">
+    <div class="category-box">
+        <div class="category">Area</div>
+        <ul>
+            <div class="n">
+                <li><input type="radio" name="area" onclick="input('locale','benefit')">02903 - Benefit Street</li>
+                <li><input type="radio" name="area" onclick="input('locale','north')">02903 - North Main Street</li>
+                <li><input type="radio" name="area" onclick="input('locale','meeting')">02903 - Meeting Street</li>
+                <li><input type="radio" name="area" onclick="input('locale','waterman')">02903 - Waterman Street</li>
+                <li><input type="radio" name="area" onclick="input('locale','college')">02903 - College Street</li>
+                <li><input type="radio" name="area" onclick="input('locale','angel')">02903 - Angell Street</li>
+            </div>
+            <div class="n1">
+                <li><input type="radio" name="area">02909 - Olneyville Square</li>
+                <li><input type="radio" name="area">02909 - Westminster Street</li>
+                <li><input type="radio" name="area">02909 - Manton Avenue</li>
+                <li><input type="radio" name="area">02909 - Tanyard Lane</li>
+                <li><input type="radio" name="area">02909 - Hartford Avenue</li>
+            </div>
+        </ul>
+    </div>
+    <div class="category-box">
+        <div class="category">Placement</div>
+        <ul>
+            <li><input type="radio" name="area">Road - center</li>
+            <li><input type="radio" name="area">Road - side</li>
+            <li><input type="radio" name="area">Sideway</li>
+        </ul>
+    </div>
+    <div class="category-box">
+        <div class="category">Function</div>
+        <ul>
+            <li><input type="radio" name="area" onclick="input('func','communication')">Communication</li>
+            <li><input type="radio" name="area" onclick="input('func','drain')">Drain</li>
+            <li><input type="radio" name="area" onclick="input('func','electric')">Electric</li>
+        </ul>
+    </div>
+    <div class="category-box">
+        <div class="category">Condition</div>
+        <ul>
+            <li><input type="radio" name="area">Good</li>
+            <li><input type="radio" name="area">Bad</li>
+            <li><input type="radio" name="area">Okay</li>
+        </ul>
+    </div>
+</div>
+<button onclick="generate()">generate pic</button>
+
+
+</body>
+<footer></footer>
