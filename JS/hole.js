@@ -331,7 +331,7 @@ const hole=[
         condition:"okay"
     },
     {
-        image: "hole/80.png",
+        image: "hole/81.png",
         func:"drain",
         condition:"okay"
     },
