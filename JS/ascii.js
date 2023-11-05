@@ -1,32 +1,37 @@
-console.log(document.querySelector('.ascii').innerHTML);
 document.querySelector('.ascii').innerHTML = textquestion;
 
 
-const inputElements = document.querySelectorAll('.wordInput');
+// const inputElements = document.querySelectorAll('.wordInput');
 
-inputElements.forEach(function(inputElement) {
-  inputElement.addEventListener('keyup', function(event) {
-    if (event.key === 'Enter' || event.keyCode === 13) {
-      const textColor = getRandomColor();
-      const num = inputElement.getAttribute('data-id');
-      updateText(num, textColor); // Pass the random color to updateText
-      setInterval(function() {
-        updateText(num, textColor); // Pass the random color to updateText
-      }, 800);
-    }
-  });
-});
+// inputElements.forEach(function(inputElement) {
+//   inputElement.addEventListener('keyup', function(event) {
+//     if (event.key === 'Enter' || event.keyCode === 13) {
 
-function updateText(num, textColor) {
-  const inputText = document.querySelector(`.wordInput[data-id="${num}"]`).value;
-  const textArray = inputText.split('');
-  const numberOfLetters = inputText.length;
+//       const num = inputElement.getAttribute('data-id');
+//       updateText(num, textColor); // Pass the random color to updateText
+//       setInterval(function() {
+//         updateText(num, textColor); // Pass the random color to updateText
+//       }, 800);
+//     }
+//   });
+// });
+
+function parameterInput(wordInput){
+  updateText(wordInput); 
+  setInterval(function() {
+    updateText(wordInput);
+  }, 800);
+}
+
+function updateText(wordInput) {
+  const textArray = wordInput.split('');
+  const numberOfLetters = wordInput.length;
   for (let i = 0; i < 10; i++) {
-    replaceRandomSpansWithText(textArray, numberOfLetters, textColor); // Pass the random color to replaceRandomSpansWithText
+    replaceRandomSpansWithText(textArray, numberOfLetters); // Pass the random color to replaceRandomSpansWithText
   }
 }
 
-function replaceRandomSpansWithText(text, x, textColor) {
+function replaceRandomSpansWithText(text, x) {
   const asciiSpans = document.querySelectorAll('.ascii span');
   const filteredSpans = Array.from(asciiSpans).filter(span => span.textContent.trim() !== '');
 
@@ -37,7 +42,7 @@ function replaceRandomSpansWithText(text, x, textColor) {
     const span = filteredSpans[i];
     span.textContent = text[num];
     span.style.fontWeight = '700';
-    span.style.color = textColor; // Set the same color for all letters in the array
+    span.style.color = 'black'; // Set the same color for all letters in the array
     num++;
 
     setTimeout(() => {

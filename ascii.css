@@ -1,15 +1,30 @@
+@font-face {
+  font-family: 'FavoritMono';
+  src: url('ABCFavoritMonoVariable-Trial.woff2') format('woff2'); /* Use the correct file path and format */
+}
+
 .ascii{
     color: black; 
-    background: white;
+    background: none;
     display:inline-block;
     white-space:pre;
     letter-spacing:0;
     line-height:1.4;
-    font-family:'Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
+    font-family:'FavoritMono','Consolas','BitstreamVeraSansMono','CourierNew',Courier,monospace;
     font-size:12px;
     font-weight:300;
     border-style:none;
+    z-index: 999;
+    letter-spacing: -0.7px;
 }
+
+.ascii-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .wordInput{
   width: 300px;
