@@ -6,11 +6,13 @@ const storedP_upon = JSON.parse(localStorage.getItem('P_upon'));
 // Instantiate the variables in your new JavaScript file
 const P_hole = storedP_hole || { condition: '', func: '' };
 const P_bg = storedP_bg || { locale: '', placement: '' };
-const P_upon = storedP_upon || { visitor: [] };
+const P_upon = storedP_upon || { visitor: [],underneath:'' };
+
 
 var filteredHole =hole;
 var filteredBg = background;
 var filteredItem = items;
+var filteredSound = sound;
 
 
 function addImage(imagesrc, zindex) {
@@ -42,19 +44,23 @@ function addImage(imagesrc, zindex) {
 function generate(){
     
     if(P_hole.condition !=''){
-    filteredHole = hole.filter((dict) => dict.condition == P_hole.condition);}
+    filteredHole = hole.filter((dict) => dict.condition === P_hole.condition);}
     if(P_hole.func !=''){
-        filteredHole = filteredHole.filter((dict) => dict.func == P_hole.func);}
+        filteredHole = filteredHole.filter((dict) => dict.func === P_hole.func);}
 
     if(P_bg.locale!=''){
-        filteredBg = filteredBg.filter((dict) => dict.street == P_bg.locale);
+        filteredBg = filteredBg.filter((dict) => dict.street === P_bg.locale);
     }
     if(P_bg.placement!=''){
-        filteredBg = filteredBg.filter((dict) => dict.placement == P_bg.placement);
+        filteredBg = filteredBg.filter((dict) => dict.placement === P_bg.placement);
     }
     if(P_upon.visitor!=''){
         filteredItem = filteredItem.filter
-        ((dict) => P_upon.visitor.every(element => dict.visitor.includes(element)));
+        ((dict) => dict.visitor.every(element => P_upon.visitor.includes(element)));
+    }
+    if(P_upon.underneath!=''){
+        filteredSound = filteredSound.filter
+        ((dict) =>dict.underground === P_upon.underneath);
     }
 
 
@@ -78,9 +84,12 @@ function generate(){
     setTimeout(() => {
         const randomi = Math.floor(Math.random() * filteredItem.length);
         for(let i = 0; i< Math.floor(Math.random() * filteredItem.length);i++){
-        addImage(filteredItem[randomi+i].image,40);
+        addImage(filteredItem[Math.floor(Math.random() * filteredItem.length)].image,40);
         }
     }, 900);
+    const randomv = Math.floor(Math.random() * filteredSound.length);
+    const voice = filteredSound[randomv].path;
+    console.log(voice);
 }
 
 function input(category,label){

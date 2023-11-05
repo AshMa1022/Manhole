@@ -1,12 +1,14 @@
+const last = '';
 function show(selector) {
   var para = document.querySelector(selector);
   var showDiv = document.querySelector('.show');
   const contentDiv = para.cloneNode(true);
+  
 
   // Add the "fade-in" class to the cloned contentDiv
   contentDiv.classList.add('fade-in');
 
-  if (showDiv.innerHTML != '') {
+  if (showDiv.innerHTML != '' && last==selector) {
     showDiv.transform = 'translateX(-40px)'
     showDiv.innerHTML = '';
   } else {
@@ -20,4 +22,5 @@ function show(selector) {
       contentDiv.style.transform = 'translateX(0px)';
     }, 10);
   }
+  last = selector;
 }
