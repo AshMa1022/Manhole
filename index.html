@@ -1,57 +1,98 @@
-<header>
+<head>
     <link rel="stylesheet"  href="style.css">
-    <script src="gen.js"></script>
-</header>
+    <link rel="stylesheet"  href="ascii.css">
+    <script src="JS/text.js"></script>
+    <script src="JS/ascii.js"></script>
+    <script src="JS/show.js"></script>
+    <script src="JS/background.js"></script>
+    <script src="JS/hole.js"></script>
+    <script src="JS/gen.js"></script>
+</head>
 <body>
-<p>test</p>
-<div class="container">
-    <div class="category-box">
-        <div class="category">Area</div>
+    <div class="ascii">
+        <div class="wordInput">
+
+        </div>
+    </div>
+
+    <div class="top_nav">
+        <div class="title"><p>MYSTERIOUS MANHOLE MAKER</p></div>
+        <div class="info"><p>- INFO</p></div>
+    </div>
+    
+    <div class ="parameter_menu">
+        <div class ="param"><a  onclick = "show('.locale')">+ Locale</a></div>
+        <div class ="param"><a  onclick = "show('.placement')">+ Placement</a></div>
+        <div class ="param"><a  onclick = "show('.function')">+ Function</a></div>
+        <div class ="param"><a  onclick = "show('.condition')">+ Condition</a></div>
+        <div class ="param"><a  onclick = "show('.visitor')">+ Visitor</a></div>
+        <div class ="param"><a  onclick = "show('.underground')">+ Underground</a></div>
+
+        <div class ="show">
+            
+        </div>
+    </div>
+
+
+
+
+    <button onclick ="generate()">generate</button>
+<div class="notshow">
+    <div class ="locale">
+        <div class = param><p>+ Locale</p></div>
         <ul>
-            <div class="n">
-                <li><input type="radio" name="area" onclick="input('locale','benefit')">02903 - Benefit Street</li>
-                <li><input type="radio" name="area" onclick="input('locale','north')">02903 - North Main Street</li>
-                <li><input type="radio" name="area" onclick="input('locale','meeting')">02903 - Meeting Street</li>
-                <li><input type="radio" name="area" onclick="input('locale','waterman')">02903 - Waterman Street</li>
-                <li><input type="radio" name="area" onclick="input('locale','college')">02903 - College Street</li>
-                <li><input type="radio" name="area" onclick="input('locale','angel')">02903 - Angell Street</li>
-            </div>
-            <div class="n1">
-                <li><input type="radio" name="area">02909 - Olneyville Square</li>
-                <li><input type="radio" name="area">02909 - Westminster Street</li>
-                <li><input type="radio" name="area">02909 - Manton Avenue</li>
-                <li><input type="radio" name="area">02909 - Tanyard Lane</li>
-                <li><input type="radio" name="area">02909 - Hartford Avenue</li>
-            </div>
+                <li><input type="radio" name="locale" onclick="input('locale','benefit')">02903 - Benefit Street</li>
+                <li><input type="radio" name="locale" onclick="input('locale','northmain')">02903 - North Main Street</li>                   
+                <li><input type="radio" name="locale" onclick="input('locale','olneyville')">02909 - Olneyville Square</li>
         </ul>
     </div>
-    <div class="category-box">
-        <div class="category">Placement</div>
+    <div class ="placement">
+        <div class = param><p>+ Placement</p></div>
         <ul>
-            <li><input type="radio" name="area">Road - center</li>
-            <li><input type="radio" name="area">Road - side</li>
-            <li><input type="radio" name="area">Sideway</li>
+                <li><input type="radio" name="placement" onclick="input('placement','rcenter')">Road - Center</li>
+                <li><input type="radio" name="placement" onclick="input('placement','redge')">Road - Edge</li>                   
+                <li><input type="radio" name="placement" onclick="input('placement','scenter')">Sidewalk -Center</li>
+                <li><input type="radio" name="placement" onclick="input('placement','sedge')">Sidewalk -Edge</li>
         </ul>
     </div>
-    <div class="category-box">
-        <div class="category">Function</div>
+    <div class ="function">
+        <div class = param><p>+ Function</p></div>
         <ul>
-            <li><input type="radio" name="area" onclick="input('func','communication')">Communication</li>
-            <li><input type="radio" name="area" onclick="input('func','drain')">Drain</li>
-            <li><input type="radio" name="area" onclick="input('func','electric')">Electric</li>
+                <li><input type="radio" name="area" onclick="input('func','communication')">Communication</li>
+                <li><input type="radio" name="area" onclick="input('func','drain')">Drain</li>                   
+                <li><input type="radio" name="area" onclick="input('func','electric')">Electric</li>
         </ul>
     </div>
-    <div class="category-box">
-        <div class="category">Condition</div>
+    <div class ="condition">
+        <div class = param><p>+ Condition</p></div>
         <ul>
-            <li><input type="radio" name="area">Good</li>
-            <li><input type="radio" name="area">Bad</li>
-            <li><input type="radio" name="area">Okay</li>
+                <li><input type="radio" name="area" onclick="input('condition','good')">Good</li>
+                <li><input type="radio" name="area" onclick="input('condition','okay')">Okay</li>                   
+                <li><input type="radio" name="area" onclick="input('condition','bad')">Bad</li>
+        </ul>
+    </div>
+    <div class ="Visitor">
+        <div class = param><p>+ Visitor</p></div>
+        <ul>
+                <li><input type="checkbox" onclick="input('visitor','human')">Human</li>
+                <li><input type="checkbox" onclick="input('visitor','car')">Car</li>                   
+                <li><input type="checkbox" onclick="input('visitor','tree')">Tree</li>
+                <li><input type="checkbox" onclick="input('visitor','bird')">Bird</li>
+        </ul>
+    </div>
+    <div class ="underground">
+        <div class = param><p>+ Function</p></div>
+        <ul>
+                <li><input type="radio" name="area" onclick="input('underneath','ordinary')">Ordinary</li>
+                <li><input type="radio" name="area" onclick="input('underneath','suspicious')">Suspicious</li>                   
+                <li><input type="radio" name="area" onclick="input('underneath','sharp')">Sharp</li>
+                <li><input type="radio" name="area" onclick="input('underneath','joyful')">Joyful</li>
+                <li><input type="radio" name="area" onclick="input('underneath','horrifying')">Horrifying</li>
+                <li><input type="radio" name="area" onclick="input('underneath','warm')">Warm</li>
+                <li><input type="radio" name="area" onclick="input('underneath','disgusting')">Disgusting</li>
+                <li><input type="radio" name="area" onclick="input('underneath','???')">???</li>
         </ul>
     </div>
 </div>
-<button onclick="generate()">generate pic</button>
-
-
 </body>
 <footer></footer>
