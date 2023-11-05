@@ -1,50 +1,42 @@
+// Get the variables from local storage and parse them
+const storedP_hole = JSON.parse(localStorage.getItem('P_hole'));
+const storedP_bg = JSON.parse(localStorage.getItem('P_bg'));
+const storedP_upon = JSON.parse(localStorage.getItem('P_upon'));
 
-
-const P_hole = {condition:'',func:''};
-const P_bg = {locale:'',placement:''};
-const P_upon = {visitor:[]};
+// Instantiate the variables in your new JavaScript file
+const P_hole = storedP_hole || { condition: '', func: '' };
+const P_bg = storedP_bg || { locale: '', placement: '' };
+const P_upon = storedP_upon || { visitor: [] };
 
 var filteredHole =hole;
 var filteredBg = background;
 var filteredItem = items;
 
-// var filteredUpon = [];
 
-function addImage(imagesrc,zindex){
+function addImage(imagesrc, zindex) {
     const bg2 = document.createElement('img');
-    bg2.src = imagesrc; // Replace 'your-image.jpg' with the image URL
+    bg2.src = imagesrc;
 
-    // Set the image to cover the entire viewport height
+    // Apply CSS styles for image positioning
     bg2.style.position = 'fixed';
     bg2.style.top = '0';
     bg2.style.left = '0';
     bg2.style.width = '100%';
     bg2.style.height = '100%';
-    bg2.style.objectFit = 'cover'; 
+    bg2.style.objectFit = 'cover';
     bg2.style.zIndex = zindex;
+
+    // Apply opacity transition
+    bg2.style.opacity = 0; // Start with 0 opacity
+    bg2.style.transition = 'opacity 0.3s ease'; // Transition opacity with a 0.3s ease effect
+
+    // Append the image to the document
     document.body.appendChild(bg2);
 
-}
-
-function arraysContainSameElements(array1, array2) {
-    // Convert the arrays to sets
-    const set1 = new Set(array1);
-    const set2 = new Set(array2);
-
-    // Check if the size of the sets is the same (i.e., they have the same number of elements)
-    if (set1.size !== set2.size) {
-        return false;
-    }
-
-    // Check if every element in set1 is also in set2
-    for (const item of set1) {
-        if (!set2.has(item)) {
-            return false;
-        }
-    }
-
-    // If all checks pass, the arrays contain the same elements
-    return true;
+    // Trigger the opacity change by setting opacity to 1 with a slight delay
+    setTimeout(() => {
+        bg2.style.opacity = 1;
+    }, 10);
 }
 
 function generate(){
@@ -70,31 +62,30 @@ function generate(){
     // Get the image object at the random index
     // Set the background image using CSS
     document.body.style.backgroundColor = "black";
-  
-    
 
     // Set the background
-    const random = Math.floor(Math.random() * filteredBg.length);
-    addImage(filteredBg[random].image,20);
 
+    setTimeout(() => {
+        const random = Math.floor(Math.random() * filteredBg.length);
+        addImage(filteredBg[random].image,20);
+      }, 300);
 
-    // Set the hole
-    const randomh = Math.floor(Math.random() * filteredHole.length);
-    addImage(filteredHole[randomh].image,30);
+    setTimeout(() => {
+        const randomh = Math.floor(Math.random() * filteredHole.length);
+        addImage(filteredHole[randomh].image,30);
+    }, 600);
 
-    const randomi = Math.floor(Math.random() * filteredItem.length);
-    for(let i = 0; i< Math.floor(Math.random() * filteredItem.length);i++){
+    setTimeout(() => {
+        const randomi = Math.floor(Math.random() * filteredItem.length);
+        for(let i = 0; i< Math.floor(Math.random() * filteredItem.length);i++){
         addImage(filteredItem[randomi+i].image,40);
-    }
-
-
-
+        }
+    }, 900);
 }
-
 
 function input(category,label){
     
-    if(category=== 'condition'){     P_hole.condition = label;}
+    if(category=== 'condition'){P_hole.condition = label;}
     else if(category=== 'func'){ P_hole.func = label;}
     else if(category ==="locale"){  P_bg.locale = label;}
     else if(category ==="placement"){  P_bg.placement = label;}
@@ -105,3 +96,4 @@ function input(category,label){
     }
 }
 
+generate(); 

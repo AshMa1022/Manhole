@@ -1,21 +1,6 @@
 document.querySelector('.ascii').innerHTML = textquestion;
 
 
-// const inputElements = document.querySelectorAll('.wordInput');
-
-// inputElements.forEach(function(inputElement) {
-//   inputElement.addEventListener('keyup', function(event) {
-//     if (event.key === 'Enter' || event.keyCode === 13) {
-
-//       const num = inputElement.getAttribute('data-id');
-//       updateText(num, textColor); // Pass the random color to updateText
-//       setInterval(function() {
-//         updateText(num, textColor); // Pass the random color to updateText
-//       }, 800);
-//     }
-//   });
-// });
-
 function parameterInput(wordInput){
   updateText(wordInput); 
   setInterval(function() {
@@ -23,11 +8,30 @@ function parameterInput(wordInput){
   }, 800);
 }
 
+function removeAscii(){
+    addSpace();
+    console.log('thispart working')
+    for(let i =0; i<100; i++){
+    setInterval(function() {
+      addSpace();
+      console.log('interval working!')
+    }, 0.1);
+  }
+}
+
 function updateText(wordInput) {
   const textArray = wordInput.split('');
   const numberOfLetters = wordInput.length;
   for (let i = 0; i < 10; i++) {
     replaceRandomSpansWithText(textArray, numberOfLetters); // Pass the random color to replaceRandomSpansWithText
+  }
+}
+
+function addSpace(){
+  console.log('removing')
+  const numberOfLetters = 1;
+  for (let i = 0; i < 7; i++) {
+    replaceRandomSpansWithText('   ', numberOfLetters); // Pass the random color to replaceRandomSpansWithText
   }
 }
 
@@ -68,4 +72,13 @@ function getRandomColor() {
     default:
       return 'unknown';
   }
+}
+
+function generateTime(){
+  removeAscii();
+  setTimeout(() => {
+    goToGeneratedPage();
+    console.log('to another page')
+  }, 1500);
+
 }

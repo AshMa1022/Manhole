@@ -321,11 +321,6 @@ const hole=[
         condition:"bad"
     },
     {
-        image: "hole/79.png",
-        func:"drain",
-        condition:"good"
-    },
-    {
         image: "hole/8.png",
         func:"signal",
         condition:"okay"

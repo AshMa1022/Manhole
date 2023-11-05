@@ -1,20 +1,48 @@
+@font-face {
+    font-family: 'FavoritMono';
+    src: url('ABCFavoritMonoVariable-Trial.woff2') format('woff2'); /* Use the correct file path and format */
+  }
+  
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
 p{
     margin:0;
 }
+
+li{
+    font-size: 13px;
+}
 .top_nav{
+    padding-top: 8px;
     display: inline-flex;
     justify-content:space-between;
     width:100%;
+    font-family: FavoritMono;
+    font-weight: 300;
 }
 .info{
-    margin:0;
+    text-align: right;
+    padding-right: 30px;
     height: 30px;
-    width: 100px;
+    width: 220px;
     border-bottom-style: solid;
 }
 .info p{
-    margin:0px 0px 3px 0px;
+    margin:5px 0px 3px 0px;
     padding-left:45px;
+}
+
+.info-content{
+    font-size: 13px;
+    position: absolute;
+    top: 70px;;
+    right: 30px;
+    width: 200px;
+    font-family: FavoritMono;
+    font-weight: 300;
 }
 .title{
     margin:0;
@@ -22,26 +50,32 @@ p{
     width: 300px;
 }
 .title p{
-    margin:0px 0px 3px 0px;
+    margin:5px 0px 3px 0px;
 }
 .parameter_menu{
     padding-top: 3%;
     width: 30%;
+    font-family: FavoritMono;
+    font-weight: 300;
 }
 
 .param{
-    border-bottom: #6f6f6f;
+    border-bottom: #000000;
     margin: 4px 4px 6px 4px;
     padding: 1px;
     border-bottom-style: solid;
     width:200px;
+    font-family: FavoritMono;
+    font-weight: 300;
+    cursor: pointer;
+
 }
 .param a,p{
     padding-left: 20px;
 }
 
 .show{
-    padding-top: 20%;
+    padding-top: 25px;
     width:300px;
 }
 .notshow{
@@ -79,3 +113,49 @@ li {
     background-color: #007bff;
     color: #fff;
 }
+
+.myButton {
+    margin-top: 10px;
+    background: white;
+    border: 0.5px solid black;
+    font-family: FavoritMono;
+    font-weight: 300;
+    font-size: 16px;
+    margin-left: 23px;
+    transition: background-color 0.3s ease;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+.myButton:hover {
+    background: black;
+    color: white;
+    border: 0.7px solid white;
+}
+
+.slide-in {
+    transform: translateX(-40px);  /* Slide left by 40px */
+    transition: transform 0.5s ease; /* Apply a transition effect */
+  }
+  
+
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Add transform transition */
+    transform: translateX(-40px); /* Initialize transform property */
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateX(0px); /* Apply transform when the element has the "show" class */
+  }
+  

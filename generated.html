@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="generated.css">
+  </head>
+  <body>
+    <button id="printPage">
+      Print this page
+    </button>
+  </body>
+  <script src="JS/background.js"></script>
+  <script src="JS/hole.js"></script>
+  <script src="JS/item.js"></script>
+  <script src="JS/gen.js"></script>
+  <script>
+    document.getElementById('printPage').addEventListener('click', function () {
+      window.print();
+    });
+  </script>
+</html>
