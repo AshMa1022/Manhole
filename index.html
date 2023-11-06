@@ -3,6 +3,8 @@
     <head>
         <link rel="stylesheet"  href="style.css">
         <link rel="stylesheet"  href="ascii.css">
+        <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.js"></script>
     </head>
     <body>
         <div class="ascii-container">
@@ -39,14 +41,25 @@
         </div>
         
         <div class ="parameter_menu">
-            <div class ="param"><a  onclick = "show('.locale')">+ Locale</a></div>
-            <div class ="param"><a  onclick = "show('.placement')">+ Placement</a></div>
-            <div class ="param"><a  onclick = "show('.function')">+ Function</a></div>
-            <div class ="param"><a  onclick = "show('.condition')">+ Condition</a></div>
-            <div class ="param"><a  onclick = "show('.visitor')">+ Visitor</a></div>
-            <div class ="param"><a  onclick = "show('.underground')">+ Underground</a></div>
+            <div class ="param"><a  onclick = "show('.locale')"><p>+ Locale</p></a></div>
+            <div class ="param"><a  onclick = "show('.placement')"><p>+ Placement</p></a></div>
+            <div class ="param"><a  onclick = "show('.function')"><p>+ Function</p></a></div>
+            <div class ="param"><a  onclick = "show('.condition')"><p>+ Condition</p></a></div>
+            <div class ="param"><a  onclick = "show('.visitor')"><p>+ Visitor</p></a></div>
+            <div class ="param"><a  onclick = "show('.underground')"><p>+ Underground</p></a></div>
+            <!-- <div class ="param"><a  onclick = "show('.upload')"><p>+ Upload <br> *your own cover*?</p></a></div> -->
     
             <div class ="show">
+                
+                <!-- <div class ="upload">
+                    <input class = "try" type="file" id="file-input"> 
+                    <div id="cropper-container">
+                    <div class="contain">      
+                    <img id="image">
+                    <button id="crop-button">save</button>
+                </div> -->
+                
+                <div class="add"></div>
                 
             </div>
         </div>
@@ -108,10 +121,17 @@
                     <li><input type="radio" name="area" onclick="input('underneath','???'), parameterInput('???')">???</li>
             </ul>
         </div>
+       
+           
     </div>
+    
+     
+    </div>
+    <script src="JS/upload.js"></script>
     </body>
     <script src="JS/text.js"></script>
     <script src="JS/ascii.js"></script>
     <script src="JS/show.js"></script>
+    
     <script src="JS/input.js"></script>
 </html>
