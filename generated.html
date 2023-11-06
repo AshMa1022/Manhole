@@ -4,10 +4,49 @@
     <link rel="stylesheet" href="generated.css">
   </head>
   <body>
+    <div id="hoverTrigger" onmouseover="moveItem()" onmouseout="restoreItem()"> </div>
     <div class = forHover></div>
     <button id="printPage">
       Print this page
     </button>
+    <div class="image-container">
+      <img class="frame" src="frame1.png">
+    </div>
+
+    <div class="main">
+      <div class="heading"> Providence Manhole Certifacate</div>
+      <div>
+        <div class="big">
+          NOTES
+        </div>
+        <div>
+          1. Located on Benefit Street <br>
+          2. Place on center of sidewalk <br>
+          3. For Electric <br>
+          4. In good Condition <br>
+          5. Visited by birds <br>
+          6. Something strange is underneath <br>
+        </div>
+<audio src="Sounds/disgusting/2.wav"></audio>
+        <div class="big">
+          LOCATION
+        </div>
+        <div>
+          The REAL manhole used in your generation is located on Benefit Street 80 80 80 10m elevation
+        </div>
+        <div>
+          The REAL background used in your generation is located on Benefit Street 80 80 80 10m elevation
+          80 80 80 10m elevation
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp-container">
+      <div class="stamp">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+      </div>
+    </div>
   </body>
   <script src="JS/background.js"></script>
   <script src="JS/hole.js"></script>
@@ -15,8 +54,16 @@
   <script src="JS/sound.js"></script>
   <script src="JS/gen.js"></script>
   <script>
+    // Disable all scrolling for the entire document
+    document.addEventListener('scroll', function(event) {
+    event.preventDefault();
+    window.scrollTo(0, 0);
+    }, { passive: false });
+
+
     document.getElementById('printPage').addEventListener('click', function () {
+      console.log('printed');
       window.print();
     });
-  </script>
+  </script> 
 </html>

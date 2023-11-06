@@ -15,29 +15,18 @@ var filteredHole =hole;
 var filteredBg = background;
 var filteredItem = items;
 var filteredSound = sound;
+var voice ='';
 
 
-function addImage(imagesrc, zindex,isUser) {
+function addImage(imagesrc, zindex,isUser, className) {
     const bg2 = document.createElement('img');
     const content = document.querySelector(".forHover");
     bg2.src = imagesrc;
-    // if(isUser){
-    // bg2.style.position = 'fixed';
-    // bg2.style.top = '0';
-    // bg2.style.left = '0';
-    // bg2.style.width = '100%';
-    // bg2.style.height = '100%';
-    // bg2.style.objectFit = 'contain';
-    // }
+    bg2.classList.add("content");
 
-    // Apply CSS styles for image positioning
-    bg2.style.position = 'fixed';
-    bg2.style.top = '0';
-    bg2.style.left = '0';
-    bg2.style.width = '100%';
-    bg2.style.height = '100%';
-    bg2.style.objectFit = 'cover';
-    bg2.style.zIndex = zindex;
+    if (className) {
+        bg2.classList.add(className);
+    }
 
     // Apply opacity transition
     bg2.style.opacity = 0; // Start with 0 opacity
@@ -46,18 +35,14 @@ function addImage(imagesrc, zindex,isUser) {
     // Append the image to the document
     if(isUser){
         bg2.classList.add(".hole");
-        
     }
     content.appendChild(bg2);
-
-    // Trigger the opacity change by setting opacity to 1 with a slight delay
     setTimeout(() => {
         bg2.style.opacity = 1;
     }, 10);
 }
 
 function generate(){
-    
     if(P_hole.condition !=''){
     filteredHole = hole.filter((dict) => dict.condition === P_hole.condition);}
     if(P_hole.func !=''){
@@ -91,27 +76,21 @@ function generate(){
         addImage(filteredBg[random].image,20,false);
       }, 300);
 
-    setTimeout(() => {
-        
-        // if(userImage !=''){
-        //     addImage(userImage,0,true);
-        // }
-        
+      setTimeout(() => {
         const randomh = Math.floor(Math.random() * filteredHole.length);
-        addImage(filteredHole[randomh].image,30,true);
-    
+        addImage(filteredHole[randomh].image, 30, true, "hoverItem");
     }, 600);
+    
 
     setTimeout(() => {
-        for(let i = 0; i< Math.floor(Math.random() * filteredItem.length);i++){
-        addImage(filteredItem[Math.floor(Math.random() * filteredItem.length)].image,40,true);
+        for (let i = 0; i < Math.floor(Math.random() * filteredItem.length); i++) {
+            addImage(filteredItem[Math.floor(Math.random() * filteredItem.length)].image, 40, true, "hoverItem");
         }
     }, 900);
+    
     const randomv = Math.floor(Math.random() * filteredSound.length);
-    const voice = filteredSound[randomv].path;
+    voice = filteredSound[randomv].path;
     console.log(voice);
-
-  
 }
 
 function input(category,label){
@@ -128,14 +107,31 @@ function input(category,label){
 }
 
 generate(); 
-const element = document.querySelector('.hole');
-console.log(element);
 
-element.addEventListener('mouseenter', function() {
-    element.classList.add('hover');
-});
 
-element.addEventListener('mouseleave', function() {
-    element.classList.remove('hover');
-});
 
+function moveItem() {
+    const hoverTrigger = document.getElementById('hoverTrigger');
+    const hoverItems = document.querySelectorAll('.hoverItem');
+    
+    hoverItems.forEach(item => {
+        const audio = new Audio(`${voice}`);
+        audio.play();
+        audio.addEventListener('ended', () => {
+            audio.pause();
+        });
+
+        item.style.transition = 'transform 2s ease'; // Add a smooth transition
+        item.style.transform = 'translateX(-500px)';
+    });
+}
+
+function restoreItem() {
+    const hoverTrigger = document.getElementById('hoverTrigger');
+    const hoverItems = document.querySelectorAll('.hoverItem');
+
+    hoverItems.forEach(item => {
+        item.style.transition = 'transform 0.3s ease'; // Add a smooth transition
+        item.style.transform = 'translateX(0px)';
+    });
+}

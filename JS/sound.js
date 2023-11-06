@@ -1,14 +1,14 @@
 const sound=[
-    {path:'Sounds/digusting/1.flac',
+    {path:'Sounds/disgusting/1.flac',
      underground:'disgusting'
     },
-    {path:'Sounds/digusting/2.wav',
+    {path:'Sounds/disgusting/2.wav',
      underground:'disgusting'
     },
-    {path:'Sounds/digusting/3.mp3',
+    {path:'Sounds/disgusting/3.mp3',
      underground:'disgusting'
     },
-    {path:'Sounds/digusting/4.mp3',
+    {path:'Sounds/disgusting/4.mp3',
      underground:'disgusting'
     },
     {path:'Sounds/digusting/1.flac',
