@@ -73,10 +73,10 @@ function generate(){
     //     filteredItem = filteredItem.filter
     //     ((dict) => dict.visitor.every(element => P_upon.visitor.includes(element)));
     // }
-    if(P_upon.underneath!=''){
-        filteredSound = filteredSound.filter
-        ((dict) =>dict.underground === P_upon.underneath);
-    }
+    // if(P_upon.underneath!=''){
+    //     filteredSound = filteredSound.filter
+    //     ((dict) =>dict.underground === P_upon.underneath);
+    // }
 
 
     const randomIndex = Math.floor(Math.random() * filteredBg.length);
@@ -105,8 +105,15 @@ function generate(){
     }, 900);
     
     const randomv = Math.floor(Math.random() * filteredSound.length);
-    voice = filteredSound[randomv].path;
-    console.log(voice);
+    console.log(randomv);
+    console.log(filteredSound.length);
+    if(filteredSound[randomv].path){
+        voice = filteredSound[randomv].path;
+    }
+    else{
+        voice = filteredSound[1];
+    }
+    
 }
 
 function input(category,label){

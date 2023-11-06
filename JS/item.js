@@ -66,5 +66,21 @@ const items = [
   {
     image: 'item/85.png',
     visitor: ['human','tree']
+  },
+  {
+    image: 'item/100.png',
+    visitor: ['bird','tree']
+  },
+  {
+    image: 'item/101.png',
+    visitor: ['human']
+  },
+  {
+    image: 'item/102.png',
+    visitor: ['human','car']
+  },
+  {
+    image: 'item/103.png',
+    visitor: ['bird','tree']
   }
 ]

@@ -1,7 +1,4 @@
 const sound=[
-    {path:'Sounds/disgusting/1.flac',
-     underground:'disgusting'
-    },
     {path:'Sounds/disgusting/2.wav',
      underground:'disgusting'
     },
@@ -9,12 +6,6 @@ const sound=[
      underground:'disgusting'
     },
     {path:'Sounds/disgusting/4.mp3',
-     underground:'disgusting'
-    },
-    {path:'Sounds/digusting/1.flac',
-     underground:'disgusting'
-    },
-    {path:'Sounds/digusting/1.flac',
      underground:'disgusting'
     },
     {path:'Sounds/horrifying/1.wav',
@@ -27,9 +18,6 @@ const sound=[
      underground:'horrifying'
     },
     {path:'Sounds/ordinary/1.wav',
-     underground:'ordinary'
-    },
-    {path:'Sounds/ordinary/2.flac',
      underground:'ordinary'
     },
     {path:'Sounds/ordinary/3.mp3',
@@ -50,7 +38,7 @@ const sound=[
     {path:'Sounds/wet/1.wav',
      underground:'wet'
     },
-    {path:'Sounds/strange/2.mp3',
+    {path:'Sounds/wet/2.mp3',
      underground:'wet'
     }
 ]
