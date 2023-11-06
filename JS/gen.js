@@ -10,6 +10,21 @@ const P_bg = storedP_bg || { locale: '', placement: '' };
 const P_upon = storedP_upon || { visitor: [],underneath:'' };
 
 
+var finalBg ='';
+var finalHole ='';
+var finalItem ='';
+var finalVisitor ='';
+var finalUnderground ='';
+
+
+    finalVisitor = 'bird,human,car,tree';
+
+
+
+    finalUnderground ='???';
+
+
+
 
 var filteredHole =hole;
 var filteredBg = background;
@@ -54,10 +69,10 @@ function generate(){
     if(P_bg.placement!=''){
         filteredBg = filteredBg.filter((dict) => dict.placement === P_bg.placement);
     }
-    if(P_upon.visitor!=''){
-        filteredItem = filteredItem.filter
-        ((dict) => dict.visitor.every(element => P_upon.visitor.includes(element)));
-    }
+    // if(P_upon.visitor!=''){
+    //     filteredItem = filteredItem.filter
+    //     ((dict) => dict.visitor.every(element => P_upon.visitor.includes(element)));
+    // }
     if(P_upon.underneath!=''){
         filteredSound = filteredSound.filter
         ((dict) =>dict.underground === P_upon.underneath);
@@ -70,14 +85,15 @@ function generate(){
     document.body.style.backgroundColor = "black";
 
     // Set the background
-
+    const random = Math.floor(Math.random() * filteredBg.length);
+    finalBg = filteredBg[random];
     setTimeout(() => {
-        const random = Math.floor(Math.random() * filteredBg.length);
         addImage(filteredBg[random].image,20,false);
       }, 300);
 
+    const randomh = Math.floor(Math.random() * filteredHole.length);
+    finalHole =filteredHole[randomh];
       setTimeout(() => {
-        const randomh = Math.floor(Math.random() * filteredHole.length);
         addImage(filteredHole[randomh].image, 30, true, "hoverItem");
     }, 600);
     
@@ -135,3 +151,37 @@ function restoreItem() {
         item.style.transform = 'translateX(0px)';
     });
 }
+
+console.log(finalBg);
+document.querySelector('.main').innerHTML=
+`      <div class="heading"> Providence Manhole Certificate</div>
+<div>
+  <div class="big">
+    NOTES
+  </div>
+  <div>
+    1. Located on ${finalBg.street} <br>
+    2. Placed on ${finalBg.placement} <br>
+    3. For ${finalHole.func} <br>
+    4. In ${finalHole.condition} condition <br>
+    5. Visited by ${finalVisitor}<br>
+    6. Something ${finalUnderground} is underneath <br>
+  </div>
+
+  <div class="big">
+    LOCATION
+  </div>
+  <div>
+    The REAL manhole used in your generation is located on <br>${finalHole.coord}
+  </div>
+  <div>
+    The REAL background used in your generation is located on <br>${finalBg.street} ${finalBg.coord}
+  </div>
+</div>`
+
+const doodle_path = doodle[Math.floor(Math.random() * doodle.length)].img;
+console.log(doodle_path);
+document.querySelector('.doodle-container').innerHTML=
+`
+<img class="doodle" src="${doodle_path}">
+`

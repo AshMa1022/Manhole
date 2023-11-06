@@ -4,55 +4,51 @@
     <link rel="stylesheet" href="generated.css">
   </head>
   <body>
+  <div class="stuff">
+    <div class="top_nav">
+      <div class="title"><p>MYSTERIOUS MANHOLE MAKER</p></div>
+      <div class="info"><p>INFO</p></div>
+  </div>
+
+  <div class ="condition">
+    <div class = "param" id="printPage"><p>+ Certificate</p></div>
+    <div class = "param" onclick="goHome();"><p>+ Return Home</p></div>
+  </div>
+  </div>
+
+
+
     <div id="hoverTrigger" onmouseover="moveItem()" onmouseout="restoreItem()"> </div>
     <div class = forHover></div>
-    <button id="printPage">
-      Print this page
-    </button>
     <div class="image-container">
       <img class="frame" src="frame1.png">
     </div>
 
     <div class="main">
-      <div class="heading"> Providence Manhole Certifacate</div>
-      <div>
-        <div class="big">
-          NOTES
-        </div>
-        <div>
-          1. Located on Benefit Street <br>
-          2. Place on center of sidewalk <br>
-          3. For Electric <br>
-          4. In good Condition <br>
-          5. Visited by birds <br>
-          6. Something strange is underneath <br>
-        </div>
-<audio src="Sounds/disgusting/2.wav"></audio>
-        <div class="big">
-          LOCATION
-        </div>
-        <div>
-          The REAL manhole used in your generation is located on Benefit Street 80 80 80 10m elevation
-        </div>
-        <div>
-          The REAL background used in your generation is located on Benefit Street 80 80 80 10m elevation
-          80 80 80 10m elevation
-        </div>
-      </div>
+
     </div>
 
     <div class="stamp-container">
       <div class="stamp">
         <div class="circle1"></div>
-        <div class="circle2"></div>
+        <div class="circle2">
+        </div>
       </div>
     </div>
+
+    <div class="doodle-container"> 
+    </div>
+  
+
+    <audio src="Sounds/disgusting/2.wav"></audio>
   </body>
   <script src="JS/background.js"></script>
   <script src="JS/hole.js"></script>
   <script src="JS/item.js"></script>
   <script src="JS/sound.js"></script>
+  <script src="JS/doodle.js"></script>
   <script src="JS/gen.js"></script>
+
   <script>
     // Disable all scrolling for the entire document
     document.addEventListener('scroll', function(event) {
@@ -65,5 +61,9 @@
       console.log('printed');
       window.print();
     });
+
+    function goHome(){
+      window.location.href = "index.html";
+    }
   </script> 
 </html>
